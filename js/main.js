@@ -1,3 +1,9 @@
+$.ajax({
+    headers:{
+        token: "ajsdg"
+    },
+});
+
 $.getJSON("http://localhost:8000/posts", function( resp ) {
     // Log each key in the response data
     $.each( resp, function( index, value ) {
@@ -39,4 +45,25 @@ $('#post').click(function(){
 		console.log(data);
 	});
 	event.preventDefault();
+});
+$('#login').click(function(){
+    var fromdata = {
+        "username": $('input[name=username]').val(),
+        "password": $('input[name=password]').val()
+    };
+    console.log(fromdata);
+    $.ajax({
+        type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+        url         : 'http://127.0.0.1:8000/api/login', // the url where we want to POST
+        data        : fromdata, // our data object
+        xhrFields: {
+            withCredentials: true
+        },
+        dataType    : 'json', // what type of data do we expect back from the server
+        crossDomain: true,
+        encode      : true
+    }).done(function(data){
+        console.log(data);
+    });
+    event.preventDefault();
 });
