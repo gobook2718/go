@@ -4,7 +4,7 @@ $.ajax({
     },
 });
 
-$.getJSON("http://localhost:8000/posts", function( resp ) {
+$.getJSON("http://206.189.95.247:8000/posts", function( resp ) {
     // Log each key in the response data
     $.each( resp, function( index, value ) {
         var imgUrl = '';
@@ -30,7 +30,7 @@ $.getJSON("http://localhost:8000/posts", function( resp ) {
     	$('#container-post').append(row);
     });
 });
-$.getJSON("http://localhost:8000/post-categories", function( resp ) {
+$.getJSON("http://206.189.95.247:8000/post-categories", function( resp ) {
     // Log each key in the response data
     $.each( resp, function( index, value ) {
     	var row_category = '<option value="'+resp[index].pk+'">'+resp[index].name+'</option>';
@@ -50,7 +50,7 @@ $('#post').click(function(){
 	$.ajax({
         // method: 'POST',
 		type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
-        url         : 'http://localhost:8000/posts', // the url where we want to POST
+        url         : 'http://206.189.95.247:8000/posts', // the url where we want to POST
         data        : formData, // our data object
         cache: false,
         contentType: false,
@@ -65,7 +65,7 @@ $('#post').click(function(){
                 form_image.append('image',images_file[i]);
                 $.ajax({
                     type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
-                    url         : 'http://localhost:8000/images', // the url where we want to POST
+                    url         : 'http://206.189.95.247:8000/images', // the url where we want to POST
                     data        : form_image, // our data object
                     cache: false,
                     contentType: false,
@@ -121,7 +121,7 @@ $('#login').click(function(){
     console.log(fromdata);
     $.ajax({
         type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
-        url         : 'http://127.0.0.1:8000/api/login', // the url where we want to POST
+        url         : 'http://206.189.95.247:8000/api/login', // the url where we want to POST
         data        : fromdata, // our data object
         xhrFields: {
             withCredentials: true
