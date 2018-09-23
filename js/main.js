@@ -16,10 +16,6 @@ $.getJSON("http://206.189.95.247:8000/posts", function( resp ) {
             }
             
         }
-        // else
-        // {
-        //     imgTag = '<img src="'+imgUrl+'" alt="thumbnail" class="img-thumbnail"style="width: 200px"">'
-        // }
     	var row = '<div class="row"><div class="col-md-7 mb-4">'+
     	'<div class="view overlay z-depth-1-half">'+ imgTag+
     	// '<img src="'+imgUrl+'" alt="thumbnail" class="img-thumbnail"style="width: 200px"">'+ 
@@ -44,8 +40,6 @@ $('#post').click(function(){
     formData.append('address',$('input[name=address]').val());
     formData.append('content',$('textarea[name=content]').val());
     formData.append('post_category',$('select[name=postCategory] option:selected').text());
-    // var fl = $('input[name=image]')[0].files[0];
-    // formData.append('image',$('input[name=image]')[0].files[0]);
     var cat = $('select[name=postCategory] option:selected').text();
 	$.ajax({
         // method: 'POST',
