@@ -49,6 +49,7 @@ $('#post').click(function(){
         cache: false,
         contentType: false,
         processData: false,
+	async: false,
         success: function(resultData){
           var id_post = resultData['id'];
           if (images_file.length > 0){
@@ -64,6 +65,7 @@ $('#post').click(function(){
                     cache: false,
                     contentType: false,
                     processData: false,
+		    async: false,
                     success: function(){
                         count_image_post = count_image_post + 1;
                     }
